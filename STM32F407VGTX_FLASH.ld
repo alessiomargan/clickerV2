@@ -64,7 +64,7 @@ SECTIONS
     . = ALIGN(4);
     KEEP(*(.isr_vector)) /* Startup code */
     . = ALIGN(4);
-  } >FLASH_BLD
+  } >FLASH_APP
 
   /* The program code and other data into "FLASH" Rom type memory */
   .text :

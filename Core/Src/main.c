@@ -46,6 +46,8 @@ SPI_HandleTypeDef hspi3;
 
 TIM_HandleTypeDef htim7;
 
+UART_HandleTypeDef huart4;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -56,6 +58,7 @@ static void MX_GPIO_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_CRC_Init(void);
+static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -97,6 +100,7 @@ int main(void)
   MX_SPI3_Init();
   MX_TIM7_Init();
   MX_CRC_Init();
+  MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   user_code_init();
   /* USER CODE END 2 */
@@ -241,7 +245,7 @@ static void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 0;
+  htim7.Init.Prescaler = 1;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim7.Init.Period = 41999;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -258,6 +262,39 @@ static void MX_TIM7_Init(void)
   /* USER CODE BEGIN TIM7_Init 2 */
 
   /* USER CODE END TIM7_Init 2 */
+
+}
+
+/**
+  * @brief UART4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART4_Init(void)
+{
+
+  /* USER CODE BEGIN UART4_Init 0 */
+
+  /* USER CODE END UART4_Init 0 */
+
+  /* USER CODE BEGIN UART4_Init 1 */
+
+  /* USER CODE END UART4_Init 1 */
+  huart4.Instance = UART4;
+  huart4.Init.BaudRate = 115200;
+  huart4.Init.WordLength = UART_WORDLENGTH_8B;
+  huart4.Init.StopBits = UART_STOPBITS_1;
+  huart4.Init.Parity = UART_PARITY_NONE;
+  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART4_Init 2 */
+
+  /* USER CODE END UART4_Init 2 */
 
 }
 
@@ -279,13 +316,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, DBG_1_Pin|DBG_2_Pin|ECAT_CS_Pin|LED_1_Pin
-                          |LED_2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, DBG_2_Pin|ECAT_CS_Pin|LED_1_Pin|LED_2_Pin
+                          |DBG_1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : DBG_1_Pin DBG_2_Pin ECAT_CS_Pin LED_1_Pin
-                           LED_2_Pin */
-  GPIO_InitStruct.Pin = DBG_1_Pin|DBG_2_Pin|ECAT_CS_Pin|LED_1_Pin
-                          |LED_2_Pin;
+  /*Configure GPIO pins : DBG_2_Pin ECAT_CS_Pin LED_1_Pin LED_2_Pin
+                           DBG_1_Pin */
+  GPIO_InitStruct.Pin = DBG_2_Pin|ECAT_CS_Pin|LED_1_Pin|LED_2_Pin
+                          |DBG_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
