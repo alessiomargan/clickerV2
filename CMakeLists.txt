@@ -65,6 +65,7 @@ set(sources_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
     ${GIT_SOES}/soes/ecat_slv.c
     ${GIT_SOES}/soes/esc.c
     ${GIT_SOES}/soes/esc_coe.c
@@ -107,6 +108,7 @@ set(symbols_SYMB
     "DEBUG"
     "USE_HAL_DRIVER"
     "STM32F407xx"
+    "ESC_DEBUG"
 )
 
 # Executable files
