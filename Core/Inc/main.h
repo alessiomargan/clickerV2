@@ -45,6 +45,8 @@ extern CRC_HandleTypeDef hcrc;
 extern TIM_HandleTypeDef htim7;
 extern SPI_HandleTypeDef hspi3;
 extern UART_HandleTypeDef huart4;
+extern CAN_HandleTypeDef hcan1;
+
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
