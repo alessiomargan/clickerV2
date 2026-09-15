@@ -26,7 +26,7 @@ enable_language(C CXX ASM)
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Setup compiler settings
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD 20)
@@ -166,7 +166,4 @@ add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${CMAKE_PROJECT_NAME}>
     COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:${CMAKE_PROJECT_NAME}> ${CMAKE_PROJECT_NAME}.hex
     COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:${CMAKE_PROJECT_NAME}> ${CMAKE_PROJECT_NAME}.bin
-    COMMAND ${CMAKE_COMMAND} -E make_directory $ENV{HOME}/.ecat_master/firmware
-    COMMAND ${CMAKE_COMMAND} -E echo "Copying firmware to ~/.ecat_master/firmware/st_et1100.bin"
-    COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_PROJECT_NAME}.bin $ENV{HOME}/.ecat_master/firmware/st_et1100.bin
 )

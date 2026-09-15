@@ -38,7 +38,8 @@ set(SOES_SOURCES
     ${GIT_SOES}/soes/esc_eep.c
     ${GIT_SOES}/soes/esc_eoe.c
     ${GIT_SOES}/soes/esc_foe.c
-    ${GIT_SOES}/soes/hal/advr_esc/esc_hw_et1100.c
+    ${GIT_SOES}/soes/hal/advr_esc/esc_hw_lan9252.c
+    ${GIT_SOES}/soes/hal/advr_esc/esc_hw_lan9252_spi.c
     ${GIT_SOES}/soes/hal/advr_esc/hal_ec_STM32F4xx.c
 )
 
@@ -53,6 +54,7 @@ set(UC_TEST_COMMON_SOURCES
 set(UC_TEST_STM32F4_SOURCES
     ${GIT_UC_TEST}/stm32f4xx/soes_test/user_code.c
     ${GIT_UC_TEST}/stm32f4xx/soes_test/flash_utils.c
+    ${GIT_UC_TEST}/stm32f4xx/soes_test/can_code.c
 )
 
 set(UC_TEST_SOURCES ${UC_TEST_COMMON_SOURCES} ${UC_TEST_STM32F4_SOURCES})
