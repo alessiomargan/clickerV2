@@ -54,3 +54,7 @@ dkms.conf
 build/
 
 Debug/
+
+# This project provides a hand-written convenience Makefile. Keep it even when
+# a user-level Git ignore file contains the common generic "Makefile" pattern.
+!/Makefile
